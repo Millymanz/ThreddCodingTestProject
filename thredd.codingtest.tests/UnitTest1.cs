@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace thredd.codingtest.tests
+namespace Thredd.CodingTest.Tests
 {
     public class UnitTest1
     {

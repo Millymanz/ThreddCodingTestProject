@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Thredd.Codingtest.Core;
-using Thredd.Codingtest.Core.Models;
 using Thredd.Codingtest.Core.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Thredd.Codingtest.Core.Interfaces;
 
-namespace thredd.codingtest.api.Controllers
+namespace Thredd.Codingtest.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

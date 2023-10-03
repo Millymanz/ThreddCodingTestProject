@@ -2,7 +2,7 @@
 using Thredd.Codingtest.Core.Interfaces;
 using Thredd.Codingtest.Core.Services;
 
-namespace Thredd.Codingtest.Core.Models
+namespace Thredd.Codingtest.Core
 {
     public class SmsNotificationMessage : INotificationMessage
     {

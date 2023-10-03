@@ -1,7 +1,7 @@
 ﻿using System;
 using Thredd.Codingtest.Core.Interfaces;
 
-namespace Thredd.Codingtest.Core.Models
+namespace Thredd.Codingtest.Core
 {
     public class EmailNotificationMessage : INotificationMessage
     {
