@@ -23,7 +23,7 @@ namespace thredd.codingtest.api.Controllers
         public async Task<IActionResult> SendNotification([FromBody] NotificationEvent notificationEvent)
         {
             var message = CheckType(notificationEvent);
-            var result = message.send(notificationEvent, out var errormessage);
+            var result = message.Send(notificationEvent, out var errormessage);
 
             if (!result)
             {
