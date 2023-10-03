@@ -13,6 +13,8 @@ namespace Thredd.Codingtest.Core
 
         public string Message { get; set; }
 
+        public string Title { get; set; }
+
         [Required]
         public string NotificationType { get; set; }
 

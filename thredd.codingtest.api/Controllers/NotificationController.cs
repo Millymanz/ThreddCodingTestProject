@@ -14,14 +14,12 @@ namespace Thredd.Codingtest.Api.Controllers
     [ApiController]
     public class NotificationController : ControllerBase
     {
-        public NotificationController()
-        {
-        }
+        private readonly StatusService _statusService;
 
         [HttpPost]
-        public async Task<IActionResult> SendNotification([FromBody] NotificationEvent notificationEvent)
+        public IActionResult SendNotification([FromBody] NotificationEvent notificationEvent)
         {
-            var message = CheckType(notificationEvent);
+            var message = NotificationMessageFactory.CreateNotificationMessage(notificationEvent.NotificationType);
             var result = message.Send(notificationEvent, out var errormessage);
 
             if (!result)
@@ -34,21 +32,9 @@ namespace Thredd.Codingtest.Api.Controllers
 
         [HttpGet]
         [Route("status/{id}")]
-        public async Task<IActionResult> GetStatus([FromRoute] Guid id)
+        public IActionResult Status([FromRoute] Guid id)
         {
-            return Ok(StatusService.GetStatus(id));
-        }
-
-        private INotificationMessage CheckType(NotificationEvent notificationEvent)
-        {
-            if (notificationEvent.NotificationType == "Sms")
-            {
-                return new SmsNotificationMessage();
-            }
-            else
-            {
-                return new EmailNotificationMessage();
-            }
+            return Ok(_statusService.GetStatus(id));
         }
     }
 }

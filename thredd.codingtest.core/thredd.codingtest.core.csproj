@@ -7,6 +7,7 @@
   <ItemGroup>
     <None Remove="4hnnl255.p1w~" />
     <None Remove="Models\EmailNotificationMessage.cs~RF221db9cd.TMP" />
+    <None Remove="NotificationMessageFactory.cs~RF22644e77.TMP" />
   </ItemGroup>
 
   <ItemGroup>

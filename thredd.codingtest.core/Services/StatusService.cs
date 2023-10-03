@@ -1,34 +1,24 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 
 namespace Thredd.Codingtest.Core.Services
 {
     public class StatusService
     {
-        public static Dictionary<Guid, string> MessageStatusDictionary;
+        private readonly ConcurrentDictionary<Guid, string> _messageStatusDictionary = new ConcurrentDictionary<Guid, string>();
 
-        public static void SetStatus(Guid id, string status)
+        public void SetStatus(Guid id, string status)
         {
-            if (MessageStatusDictionary == null)
-            {
-                MessageStatusDictionary = new Dictionary<Guid, string>();
-            }
-
-            MessageStatusDictionary.Add(id, status);
+            _messageStatusDictionary[id] = status;
         }
 
-        public static string GetStatus(Guid id)
+        public string GetStatus(Guid id)
         {
-            if (MessageStatusDictionary == null)
+            if (_messageStatusDictionary.TryGetValue(id, out string status))
             {
-                throw new ApplicationException("No status set");
+                return status;
             }
-
-            if (MessageStatusDictionary.ContainsKey(id))
-            {
-                return MessageStatusDictionary[id];
-            }
-
             return string.Empty;
         }
     }
