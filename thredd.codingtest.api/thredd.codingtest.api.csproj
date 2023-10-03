@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\thredd.codingtest.core\thredd.codingtest.core.csproj" />
+    <ProjectReference Include="..\Thredd.Codingtest.Core\Thredd.Codingtest.Core.csproj" />
   </ItemGroup>
 
 

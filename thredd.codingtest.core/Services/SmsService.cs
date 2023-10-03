@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace thredd.codingtest.core.Services
+namespace Thredd.Codingtest.Core.Services
 {
     public class SmsService
     {

@@ -1,10 +1,11 @@
 ﻿using System;
+using Thredd.Codingtest.Core.Interfaces;
 
-namespace thredd.codingtest.core.Models
+namespace Thredd.Codingtest.Core.Models
 {
     public class EmailNotificationMessage : INotificationMessage
     {
-        public bool send(NotificationEvent notificationEvent, out string error)
+        public bool Send(NotificationEvent notificationEvent, out string error)
         {
             throw new NotImplementedException();
         }

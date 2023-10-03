@@ -1,7 +1,8 @@
 ﻿using System;
-using thredd.codingtest.core.Services;
+using Thredd.Codingtest.Core.Interfaces;
+using Thredd.Codingtest.Core.Services;
 
-namespace thredd.codingtest.core.Models
+namespace Thredd.Codingtest.Core.Models
 {
     public class SmsNotificationMessage : INotificationMessage
     {

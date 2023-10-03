@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace thredd.codingtest.core.Services
+namespace Thredd.Codingtest.Core.Services
 {
     public class StatusService
     {

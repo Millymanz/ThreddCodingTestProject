@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace thredd.codingtest.core
+namespace Thredd.Codingtest.Core
 {
     public class NotificationEvent
     {
