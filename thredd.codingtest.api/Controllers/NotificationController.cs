@@ -39,6 +39,8 @@ namespace Thredd.Codingtest.Api.Controllers
             {
                 return BadRequest(errormessage);
             }
+            _statusService.AddStatus(notificationEvent.Id, "Notification Sent");
+
             _logger.LogInformation("Notification sent successfully");
 
             return Ok("Message Sent");

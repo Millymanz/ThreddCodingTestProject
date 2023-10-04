@@ -13,6 +13,11 @@ namespace Thredd.Codingtest.Core.Services
             _messageStatusDictionary = new ConcurrentDictionary<Guid, string>();
         }
 
+        public void AddStatus(Guid id, string status)
+        {
+            _messageStatusDictionary.TryAdd(id, status);
+        }
+
         public void SetStatus(Guid id, string status)
         {
             _messageStatusDictionary[id] = status;
