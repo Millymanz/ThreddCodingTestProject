@@ -6,7 +6,12 @@ namespace Thredd.Codingtest.Core.Services
 {
     public class StatusService
     {
-        private readonly ConcurrentDictionary<Guid, string> _messageStatusDictionary = new ConcurrentDictionary<Guid, string>();
+        private ConcurrentDictionary<Guid, string> _messageStatusDictionary;
+
+        public StatusService()
+        {
+            _messageStatusDictionary = new ConcurrentDictionary<Guid, string>();
+        }
 
         public void SetStatus(Guid id, string status)
         {

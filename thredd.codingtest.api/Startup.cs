@@ -22,7 +22,7 @@ namespace Thredd.Codingtest.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddTransient<NotificationMessageFactory>();
-            services.AddTransient<StatusService>();
+            services.AddSingleton<StatusService>();
             services.AddControllers();           
 
             services.AddSwaggerGen(c =>
