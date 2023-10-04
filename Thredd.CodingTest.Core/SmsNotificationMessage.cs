@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using System;
 using Thredd.Codingtest.Core.Interfaces;
 using Thredd.Codingtest.Core.Services;
+
 
 namespace Thredd.Codingtest.Core
 {
@@ -8,8 +10,12 @@ namespace Thredd.Codingtest.Core
     {
         private readonly SmsService smsService;
 
-        public SmsNotificationMessage()
+        private readonly ILogger<SmsNotificationMessage> _logger;
+
+        public SmsNotificationMessage(ILogger<SmsNotificationMessage> logger)
         {
+            _logger = logger;
+
             smsService = new SmsService();
         }
 
@@ -26,12 +32,16 @@ namespace Thredd.Codingtest.Core
                     return false;
                 }
 
+                _logger.LogInformation("Sending SMS to {Recipient}", notificationEvent.To);
+
                 result = smsService.Send(notificationEvent.To, notificationEvent.From, notificationEvent.Message);
             }
             catch (Exception e)
             {
                 error = e.Message;
             }
+
+            _logger.LogError("Error occurred: {ErrorMessage}", error);
 
             return result;
         }

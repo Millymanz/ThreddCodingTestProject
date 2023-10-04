@@ -1,4 +1,6 @@
 using FluentAssertions;
+using Microsoft.Extensions.Logging;
+using NSubstitute;
 using System;
 using Thredd.Codingtest.Core;
 using Thredd.Codingtest.Core.Services;
@@ -11,7 +13,9 @@ namespace Thredd.CodingTest.Tests
         [Fact]
         public void Can_Send_ValidMessage_ReturnsTrue()
         {
-            var smsNotification = new SmsNotificationMessage();
+            var logger = Substitute.For<ILogger<SmsNotificationMessage>>();
+
+            var smsNotification = new SmsNotificationMessage(logger);
             var notificationEvent = new NotificationEvent
             {
                 To = "1234567890",
@@ -28,7 +32,9 @@ namespace Thredd.CodingTest.Tests
         [Fact]
         public void Can_Send_InvalidTo_ThrowsException()
         {
-            var smsNotification = new SmsNotificationMessage();
+            var logger = Substitute.For<ILogger<SmsNotificationMessage>>();
+
+            var smsNotification = new SmsNotificationMessage(logger);
             var notificationEvent = new NotificationEvent
             {
                 To = string.Empty,
@@ -44,7 +50,9 @@ namespace Thredd.CodingTest.Tests
         [Fact]
         public void Can_Send_InvalidFrom_ThrowsException()
         {
-            var smsNotification = new SmsNotificationMessage();
+            var logger = Substitute.For<ILogger<SmsNotificationMessage>>();
+
+            var smsNotification = new SmsNotificationMessage(logger);
             var notificationEvent = new NotificationEvent
             {
                 To = "1234567890",
@@ -60,7 +68,9 @@ namespace Thredd.CodingTest.Tests
         [Fact]
         public void Can_Send_InvalidMessage_ThrowsException()
         {
-            var smsNotification = new SmsNotificationMessage();
+            var logger = Substitute.For<ILogger<SmsNotificationMessage>>();
+
+            var smsNotification = new SmsNotificationMessage(logger);
             var notificationEvent = new NotificationEvent
             {
                 To = "1234567890",

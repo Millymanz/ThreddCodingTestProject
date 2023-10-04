@@ -1,4 +1,6 @@
 ﻿using FluentAssertions;
+using Microsoft.Extensions.Logging;
+using NSubstitute;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,7 +15,9 @@ namespace Thredd.Codingtest.Tests
         [Fact]
         public void Can_Send_ValidMessage_ReturnsTrue()
         {
-            var emailNotification = new EmailNotificationMessage();
+            var logger = Substitute.For<ILogger<EmailNotificationMessage>>();
+
+            var emailNotification = new EmailNotificationMessage(logger);
             var notificationEvent = new NotificationEvent
             {
                 To = "test@email.com",
@@ -30,7 +34,9 @@ namespace Thredd.Codingtest.Tests
         [Fact]
         public void Can_Send_InvalidTo_ThrowsException()
         {
-            var emailNotification = new EmailNotificationMessage();
+            var logger = Substitute.For<ILogger<EmailNotificationMessage>>();
+
+            var emailNotification = new EmailNotificationMessage(logger);
             var notificationEvent = new NotificationEvent
             {
                 To = string.Empty,
@@ -46,7 +52,9 @@ namespace Thredd.Codingtest.Tests
         [Fact]
         public void Can_Send_InvalidFrom_ThrowsException()
         {
-            var emailNotification = new EmailNotificationMessage();
+            var logger = Substitute.For<ILogger<EmailNotificationMessage>>();
+
+            var emailNotification = new EmailNotificationMessage(logger);
             var notificationEvent = new NotificationEvent
             {
                 To = "test@gmail.com",
@@ -62,7 +70,9 @@ namespace Thredd.Codingtest.Tests
         [Fact]
         public void Can_Send_InvalidMessage_ThrowsException()
         {
-            var emailNotification = new EmailNotificationMessage();
+            var logger = Substitute.For<ILogger<EmailNotificationMessage>>();
+
+            var emailNotification = new EmailNotificationMessage(logger);
             var notificationEvent = new NotificationEvent
             {
                 To = "test@email.com",
@@ -74,6 +84,5 @@ namespace Thredd.Codingtest.Tests
             result.Should().BeFalse();
             error.Should().Contain("Message field is required");
         }
-
     }
 }
