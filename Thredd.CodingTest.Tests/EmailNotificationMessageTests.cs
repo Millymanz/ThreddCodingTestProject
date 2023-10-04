@@ -35,7 +35,7 @@ namespace Thredd.Codingtest.Tests
             {
                 To = string.Empty,
                 From = "from@email.com",
-                Message = "Hello"
+                Message = "Account credited"
             };
 
             var result = emailNotification.Send(notificationEvent, out var error);
@@ -51,7 +51,7 @@ namespace Thredd.Codingtest.Tests
             {
                 To = "test@gmail.com",
                 From = string.Empty,
-                Message = "Hello"
+                Message = "Account credited"
             };
 
             var result = emailNotification.Send(notificationEvent, out var error);

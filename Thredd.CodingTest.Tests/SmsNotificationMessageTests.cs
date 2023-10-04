@@ -33,7 +33,7 @@ namespace Thredd.CodingTest.Tests
             {
                 To = string.Empty,
                 From = "0987654321",
-                Message = "Hello"
+                Message = "Account credited"
             };
 
             var result = smsNotification.Send(notificationEvent, out var error);
@@ -49,7 +49,7 @@ namespace Thredd.CodingTest.Tests
             {
                 To = "1234567890",
                 From = string.Empty,
-                Message = "Hello"
+                Message = "Account credited"
             };
 
             var result = smsNotification.Send(notificationEvent, out var error);
