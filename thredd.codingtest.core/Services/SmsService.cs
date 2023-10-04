@@ -13,17 +13,17 @@ namespace Thredd.Codingtest.Core.Services
 
         public bool Send(string to, string from, string message)
         {
-            if (!string.IsNullOrEmpty(to))
+            if (string.IsNullOrEmpty(to))
             {
                 throw new FailureToSendException("To field is required");
             }
 
-            if (!string.IsNullOrEmpty(from))
+            if (string.IsNullOrEmpty(from))
             {
-                throw new FailureToSendException("To field is required");
+                throw new FailureToSendException("From field is required");
             }
 
-            if (!string.IsNullOrEmpty(message))
+            if (string.IsNullOrEmpty(message))
             {
                 throw new FailureToSendException("Message field is required");
             }
